@@ -1,72 +1,89 @@
 # 🔗 URL Shortener Microservice
 
-This project is part of the [freeCodeCamp Back End Development and APIs Certification](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/url-shortener-microservice).
+This project is part of the freeCodeCamp Back End Development and APIs Certification.
 
 ## 📌 Overview
 
-A simple API that allows users to shorten URLs. Given a valid URL, the service returns a short URL ID which can be used to redirect to the original link.
+The URL Shortener Microservice allows users to input a valid URL and receive a shortened version. When the shortened URL is visited, it redirects the user to the original URL. The backend uses Node.js, Express, and MongoDB to store and retrieve the URLs.
 
 ## 🔍 Features
 
-- Accepts valid HTTP/HTTPS URLs via POST request  
-- Stores and retrieves shortened URLs  
-- Redirects to original URL using short ID  
+- Accepts a valid URL and returns a shortened numeric code.
+- Validates the URL using DNS lookup.
+- Redirects users when they visit the shortened URL.
+- Uses MongoDB to store original and shortened URL mappings.
 
 ## 📡 API Endpoints
 
 ### `POST /api/shorturl`
 
-Send a URL to be shortened:
+Submit a URL to shorten.
 
-Request body:
+**Request body:**
 {
-  "url": "https://example.com"
+  "url": "https://www.example.com"
 }
 
-Response:
+**Response:**
 {
-  "original_url": "https://example.com",
+  "original_url": "https://www.example.com",
   "short_url": 1
+}
+
+If the URL is invalid:
+{
+  "error": "Invalid URL"
 }
 
 ### `GET /api/shorturl/:short_url`
 
-Redirects the user to the original URL associated with the short ID.
+Redirects to the original URL associated with `short_url`.
 
-Example:  
-GET /api/shorturl/1 → Redirects to https://example.com
+**Example:**  
+Request: `GET /api/shorturl/1`  
+Redirects to: `https://www.example.com`
 
 ## ⚙️ Technologies Used
 
-- Node.js  
-- Express.js  
-- body-parser  
-
-## 💻 Source Code
-
-🔗 [GitHub Repository](https://github.com/giannis07/fcc_url_shortener_microservice)
+- Node.js
+- Express.js
+- MongoDB
+- DNS module for URL validation
 
 ## 🛠️ Getting Started Locally
 
-1. Clone the repository:
+1. **Clone the repository**:
  ```bash
-git clone https://github.com/giannis07/fcc_url_shortener_microservice.git  
+git clone https://github.com/giannis07/fcc_url_shortener_microservice.git
 cd fcc_url_shortener_microservice
 ```
 
-2. Install dependencies:
+2. **Install dependencies**:
  ```bash
 npm install
 ```
 
-3. Start the server:
+3. **Set up environment variables**:
+
+Create a `.env` file in the root directory and add:
+ ```bash
+MONGO_URI=your-mongodb-connection-string
+```
+
+4. **Start the server**:
  ```bash
 npm start
 ```
 
-4. Use a tool like Postman or your browser to test:
+The server will be running on `http://localhost:3000` 
+
+5. Use a tool like Postman or your browser to test:
  ```
 - POST http://localhost:3000/api/shorturl  
 - GET http://localhost:3000/api/shorturl/1
 ```
 
+
+## 💻 Source Code
+
+🔗 https://github.com/giannis07/fcc_url_shortener_microservice
