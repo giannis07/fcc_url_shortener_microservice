@@ -69,6 +69,8 @@ Create a `.env` file in the root directory and add:
  ```bash
 MONGO_URI=your-mongodb-connection-string
 ```
+The MongoDB database should include a collection named `urls`, where URL mappings will be stored.
+
 
 4. **Start the server**:
  ```bash
