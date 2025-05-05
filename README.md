@@ -1,6 +1,6 @@
 # 🔗 URL Shortener Microservice
 
-This project is part of the freeCodeCamp Back End Development and APIs Certification.
+My solution for the [URL Shortener Microservice project on freeCodeCamp](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/url-shortener-microservice).
 
 ## 📌 Overview
 
